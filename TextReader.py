@@ -13,6 +13,8 @@ def read_reg(img):
 
 def test():
     #https://pl.wikipedia.org/wiki/Tablice_rejestracyjne_w_Polsce
-    img = cv2.imread("images/readtetxt1.png") #works XDDDDDDDDDDDDDDDDDDDDD
+    img = cv2.imread("images/image2.jpg") #works XDDDDDDDDDDDDDDDDDDDD
     text = pytesseract.image_to_string(img)
     print(text)
+
+test()
