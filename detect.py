@@ -5,7 +5,7 @@ import nltk
 from nltk.tokenize import word_tokenize
 from nltk.tag import pos_tag
 import numpy as np
-
+import ImageAIEx
 import os
 import cv2
 #from moviepy.editor import *
@@ -30,14 +30,19 @@ def generate_frames(test_video_path):
             print("Ramka nr... "+str(frame_counter))
             cv2.imwrite(name, frame)
             index = index + 1
+            ImageAIEx.detect(name, frame_counter)
+            # i w sumie na tej ramke mozna cos robic
+
             if cv2.waitKey(10) & 0xFF == ord('q'):
                 break
         frame_counter = frame_counter + 1
 
+
 def main():
-    video_path = "videos/traffic.mp4"
+    video_path = "videos/cut.mp4"
     create_rep()
     generate_frames(video_path)
     # print(get_duration(video_path))
+
 
 main()

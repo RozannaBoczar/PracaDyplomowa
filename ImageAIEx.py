@@ -14,15 +14,18 @@ def predict():
     print(probabilities)
 
 
-def detect():
+def detect(image, index):
     detector = ObjectDetection()
     detector.setModelTypeAsRetinaNet()
     detector.setModelPath("models/resnet50_coco_best_v2.0.1.h5")
     detector.loadModel()
-    detections = detector.detectObjectsFromImage(input_image="images/image2.jpg", output_image_path="images/image1.jpg",
-                                                 minimum_percentage_probability=90)
+    detections = detector.detectObjectsFromImage(input_image=image,
+                                                 output_image_path="image_frames_detected/image"+str(index)+".png",
+                                                 output_type='array',
+                                                 extract_detected_objects=True,
+                                                 minimum_percentage_probability=80)
 
 
-detect()
+#detect()
 
 
