@@ -21,14 +21,15 @@ def detect_car(image, index):  # detect motor, detect truck
     detector.setModelPath("models/resnet50_coco_best_v2.0.1.h5")
     detector.loadModel()
     # perfect :3
-    returned_image, detections = detector.detectObjectsFromImage(input_image=image,
+    detections, extracted_objects = detector.detectObjectsFromImage(input_image=image,
                                                                  output_image_path="image_frames_detected/image" + str(
                                                                      index) + ".png",
                                                                  output_type='file',
                                                                  extract_detected_objects=True,
                                                                  minimum_percentage_probability=80)
     print(detections)
-    return detections
+    types = "types of cars, motors etc."
+    return types, extracted_objects  # array
 
 
 def detect_registration(image, index):
